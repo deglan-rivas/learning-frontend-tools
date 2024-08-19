@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # mongo-db:
+  #   image: mongo:6.0.6
+  #   restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: mongo-user
+  #     MONGO_INITDB_ROOT_PASSWORD: 123456
+  #   volumes:
+  #     - ./mongo:/data/db
+  #   ports:
+  #     - 27017:27017
+
+  postgres-db:
+    image: postgres:15.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT}:5432
