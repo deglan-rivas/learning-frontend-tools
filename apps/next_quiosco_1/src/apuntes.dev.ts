@@ -5,6 +5,8 @@
 // separar las constantes en un constants.ts aunque noté que se podía compartir directamente en el index.ts del utils, pero bueno xd mejor usarlo como archivo de barrido
 // el disabled me gusta, da buen feedback al user
 // usar el useRef para limpiar el input text del Summary.tsx, ayudar de chatgpt
+// export type OrderWithProducts = OrdersWithProducts[number] para extraer un type a partir de un array que es justo lo que devuelve el get de prisma ez
+// dl definition list, dt definition term, dd definition description, no usar dt ni dd fuera del dl -> https://www.youtube.com/watch?v=FZDTBD7EW_I buenos tags de html modernos
 
 
 // TODO deshabilitar el AddProductButton cuando se llegue al límite de 5

@@ -1,11 +1,12 @@
 "use client"
 
+import { createOrder } from "@/actions/create-order.action";
 import { OrderSchema } from "@/src/schemas";
 import { useStore } from "@/src/store";
 import { formatCurrency } from "@/src/utils";
 import { useMemo, useRef } from "react";
 import { toast } from "react-toastify";
-import OrderSlot from "../OrderSlot";
+import OrderSlot from "./OrderSlot";
 
 export default function Summary() {
   const { orders, clearOrder } = useStore()
@@ -30,11 +31,11 @@ export default function Summary() {
       return
     }
 
-    // const response = await createOrder(results.data)
-    // if (response?.errors) {
-    //   response.errors.forEach(error => toast.error(error))
-    //   return
-    // }
+    const response = await createOrder(results.data)
+    if (response?.errors) {
+      response.errors.forEach(error => toast.error(error))
+      return
+    }
 
     toast.success('Orden creada exitosamente')
     clearOrder()

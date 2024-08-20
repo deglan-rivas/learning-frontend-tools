@@ -19,3 +19,7 @@ export const OrderSchema = z.object({
     subtotal: z.number(),
   }))
 })
+
+export const OrderIdSchema = z.object({
+  orderId: z.string().uuid()
+})
