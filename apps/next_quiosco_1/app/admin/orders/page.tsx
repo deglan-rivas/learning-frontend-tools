@@ -1,4 +1,4 @@
-import OrderCard from "@/components/admin/oders/OrderCard";
+import OrderCard from "@/components/admin/orders/OrderCard";
 import Heading from "@/components/ui/Heading";
 import { prisma } from "@/src/lib/prisma";
 
