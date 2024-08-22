@@ -23,3 +23,8 @@ export const OrderSchema = z.object({
 export const OrderIdSchema = z.object({
   orderId: z.string().uuid()
 })
+
+export const ProductSearchSchema = z.object({
+  search: z.string()
+    .min(1, "La búsqueda no debe estar vacía")
+})

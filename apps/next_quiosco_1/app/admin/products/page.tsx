@@ -1,4 +1,5 @@
 import ProductPagination from "@/components/admin/products/ProductPagination";
+import ProductSearchForm from "@/components/admin/products/ProductSearchForm";
 import ProducTable from "@/components/products/ProducTable";
 import Heading from "@/components/ui/Heading";
 import { prisma } from "@/src/lib/prisma";
@@ -53,24 +54,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           Crear Producto
         </Link>
 
-        <form
-          action=""
-          className="flex items-center"
-        >
-          <input
-            type="text"
-            name="search"
-            className="px-4 py-2 flex-auto placeholder:text-gray-400"
-            // className="px-4 py-2 flex-auto placeholder:text-gray-400 placeholder-green-600"
-            placeholder="Eg. galleta"
-          />
-          <button
-            type="submit"
-            className="px-4 py-2 uppercase text-white bg-indigo-600"
-          >
-            Buscar
-          </button>
-        </form>
+        <ProductSearchForm />
 
       </div>
 
