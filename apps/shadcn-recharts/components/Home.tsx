@@ -21,6 +21,7 @@ import { useMemo } from 'react';
 
 export const description = "A line chart with a label"
 
+// KEY A
 const tokenData = [
   { month: "June", tokens: 186 },
   { month: "July", tokens: 305 },
@@ -31,6 +32,7 @@ const tokenData = [
   // { month: "June", tokens: 214 },
 ]
 
+// KEY B
 const tokenConfig = {
   tokens: {
     label: "Tokens",
@@ -103,6 +105,7 @@ export default function Home() {
               }}
             >
               <CartesianGrid vertical={false} />
+              {/* KEY A: monthdebe cooincir con el tokenData */}
               <XAxis
                 dataKey="month"
                 tickLine={false}
@@ -114,6 +117,8 @@ export default function Home() {
                 cursor={false}
                 content={<ChartTooltipContent indicator="line" />}
               />
+              {/* KEY A: tokens debe coincidir con el tokenData */}
+              {/* KEY B: el color se toma a partir del config tokens y no Tokens */}
               <Line
                 dataKey="tokens"
                 type="natural"
