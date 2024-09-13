@@ -84,3 +84,4 @@ mongo
 .env.prod
 postgres
 node_modules
+resueltos/*
