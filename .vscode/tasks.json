@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "App 1",
+			"type": "shell",
+			"command": "pnpm run dev:test_1",
+			"group": {
+				"kind": "none",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "Start App 1"
+		},
+		{
+			"label": "App 22",
+			"type": "shell",
+			"command": "pnpm run dev:test_2",
+			"group": {
+				"kind": "none",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "Start App 2"
+		},
+		{
+			"label": "StartAllApps",
+			"type": "process",
+			"command": "pnpm run dev",
+			"problemMatcher": [],
+			"dependsOn": [
+				"App 1",
+				"App 22"
+			],
+			"group": {
+				"kind": "none",
+				"isDefault": false
+			}
+		}
+	]
+}

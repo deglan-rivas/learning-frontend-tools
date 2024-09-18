@@ -1,0 +1,94 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "Debug test_1 (Express)",
+      "command": "pnpm run dev",
+      "cwd": "${workspaceFolder}/apps/test_1",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "Launch Program - test_1",
+    //   "skipFiles": [
+    //     "<node_internals>/**"
+    //   ],
+    //   "program": "${workspaceFolder}/apps/test_1/src/app.ts",
+    //   "outFiles": [
+    //     "${workspaceFolder}/**/*.js"
+    //   ],
+    //   "runtimeArgs": [
+    //     "-r",
+    //     "ts-node/register"
+    //   ],
+    //   "sourceMaps": true,
+    //   "resolveSourceMapLocations": [
+    //     "${workspaceFolder}/apps/test_1/**/*.js",
+    //     "!**/node_modules/**"
+    //   ],
+    //   "cwd": "${workspaceFolder}/apps/test_1"
+    // },   
+    // solo usar el server side, el client side parece muy lento o algo estoy haciendo mal xd si tiene "use client" gg nomás depurar a la antigua con console.logs xd 
+    // listo xd primero lanzar el server-side y luego el client-side, ya lee los breakpoints del "use client" aunque sigue siendo muy lento por el useSWR o useQuery
+    {
+      "name": "Next.js: debug server-side (shadcn-recharts)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm run dev",
+      "cwd": "${workspaceFolder}/apps/shadcn-recharts"
+    },
+    {
+      "name": "Next.js: debug client-side (shadcn-recharts)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/apps/shadcn-recharts"
+    },
+    // {
+    //   "name": "Next.js: debug full stack (shadcn-recharts)",
+    //   "type": "node",
+    //   "request": "launch",
+    //   "program": "${workspaceFolder}/apps/shadcn-recharts/node_modules/.bin/next",
+    //   "runtimeArgs": [
+    //     "--inspect"
+    //   ],
+    //   "skipFiles": [
+    //     "<node_internals>/**"
+    //   ],
+    //   "serverReadyAction": {
+    //     "action": "debugWithEdge",
+    //     "killOnServerStop": true,
+    //     "pattern": "- Local:.+(https?://.+)",
+    //     "uriFormat": "%s",
+    //     "webRoot": "${workspaceFolder}/apps/shadcn-recharts"
+    //   }
+    // }
+    {
+      "name": "backend python fastify",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/serverless/chatwoot-auna/src/create_interactions/app.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "python": "/home/deglan/.pyenv/versions/3.7.16/bin/python",
+      "env": {
+        "COMMENTS": "arranca el flujo, simula trigger de api gateway, cambiar el name para probar filtro, opcional cambiar el número y body_params, simula el body final. APAGADO",
+        "SQS_INTERACTION_URL": "https://sqs.us-west-2.amazonaws.com/337331232350/SQSInteraction",
+        "REGION_NAME": "us-west-2",
+        "NOTIFAI_BACKEND_PRD": "api-plataforma-dev.notifai.pe",
+        "BEARER_TOKEN": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODU4MDg1OTQsImlhdCI6MTY4NTcyMTg5NCwibmJmIjoxNjg1NzIxODk0LCJpZGVudGl0eSI6IkpESmhKREE0SkZkdVZVRklMbEpTUlU5VFZUaHZSSEZpV0RCU2VuVnBRVTlxTTFkeGVYUkRUVzh2U25VemFqZzFPVTFXUlc1bWNUbG9TR3AxIiwibmFtZSI6Ik5vdGlmYWkgU3VwZXJBZG1pbiIsImJ1c2luZXNzIjoiQWRhVGhpbmsgTGFiIDIifQ.a07j5Ilrduh-vyhjwXPDUSjblXeLXBNVyapQWrYo7Qc",
+        "GET_CAMPAIGN_PATH": "api/v1/campaigns/{}",
+        "TOKEN": "Token TguOAlplhPKcDkxaUWmd7mf6ojSEIva5qVM2wLl2Dv4i2YrKzC",
+        "EVENT": ""
+      }
+    },
+  ]
+}

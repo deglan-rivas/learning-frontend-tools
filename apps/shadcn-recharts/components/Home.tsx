@@ -61,6 +61,7 @@ const interactionConfig = {
 } satisfies ChartConfig
 
 export default function Home() {
+  console.log('ga desde el home')
   // export default function Home() {
 
   //   const tokenData = useMemo(() => [

@@ -1,0 +1,112 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "App 1",
+			"type": "shell",
+			"command": "pnpm run dev:test_1",
+			"group": {
+				"kind": "none",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "Start App 1"
+		},
+		{
+			"label": "App 22",
+			"type": "shell",
+			"command": "pnpm run dev:test_2",
+			"group": {
+				"kind": "none",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "Start App 2"
+		},
+		{
+			"label": "Start All Apps",
+			"problemMatcher": [],
+			"dependsOn": [
+				"App 1",
+				"App 22"
+			],
+			"group": {
+				"kind": "none",
+				"isDefault": false
+			}
+		}
+		// {
+		// 	"label": "pnpm run dev",
+		// 	"type": "shell",
+		// 	"command": "pnpm run dev",
+		// 	"problemMatcher": [
+		// 		{
+		// 			"owner": "typescript",
+		// 			"fileLocation": [
+		// 				"relative",
+		// 				"${workspaceFolder}"
+		// 			],
+		// 			"pattern": {
+		// 				"regexp": "^(.*):(\\d+):(\\d+):\\s+(error)\\s+(TS\\d+):\\s+(.*)$",
+		// 				"file": 1,
+		// 				"line": 2,
+		// 				"column": 3,
+		// 				"severity": 4,
+		// 				"code": 5,
+		// 				"message": 6
+		// 			}
+		// 		}
+		// 	],
+		// 	"isBackground": true,
+		// 	"presentation": {
+		// 		"echo": true,
+		// 		"reveal": "always",
+		// 		"focus": false,
+		// 		"panel": "dedicated",
+		// 		"showReuseMessage": true,
+		// 		"clear": false
+		// 	},
+		// 	"options": {
+		// 		"cwd": "${workspaceFolder}/apps"
+		// 	}
+		// }
+		// {
+		// 	"label": "pnpm run dev",
+		// 	"type": "shell",
+		// 	"command": "pnpm run dev",
+		// 	"problemMatcher": [],
+		// 	"isBackground": true,
+		// 	"presentation": {
+		// 		"echo": true,
+		// 		"reveal": "always",
+		// 		"focus": false,
+		// 		"panel": "dedicated",
+		// 		"showReuseMessage": true,
+		// 		"clear": false,
+		// 		"group": "dev-node-app-30"
+		// 	},
+		// 	"options": {
+		// 		"cwd": "${workspaceFolder}/apps"
+		// 	}
+		// },
+		// {
+		// 	"label": "pnpm run dev - test_2",
+		// 	"type": "shell",
+		// 	"command": "pnpm run dev",
+		// 	"problemMatcher": [],
+		// 	"isBackground": true,
+		// 	"presentation": {
+		// 		"echo": true,
+		// 		"reveal": "always",
+		// 		"focus": false,
+		// 		"panel": "dedicated",
+		// 		"showReuseMessage": true,
+		// 		"clear": false,
+		// 		"group": "dev-node-app-31"
+		// 	},
+		// 	"options": {
+		// 		"cwd": "${workspaceFolder}/apps/test_2"
+		// 	}
+		// }
+	]
+}
