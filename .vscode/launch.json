@@ -2,14 +2,17 @@
   // Use IntelliSense to learn about possible attributes.
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  // todas las configs funcionan para monorepos o repos que no son carpeta raíz usando el cwd o PYTHONPATH
   "version": "0.2.0",
   "configurations": [
+    // funciona para backend en ts sea código puro o un server tipo api rest o websockets
     {
       "type": "node-terminal",
       "request": "launch",
       "name": "Debug test_1 (Express)",
       "command": "pnpm run dev",
       "cwd": "${workspaceFolder}/apps/test_1",
+      // "cwd": "${workspaceFolder}/apps/test_2",
       "env": {
         "NODE_ENV": "development"
       }
@@ -71,24 +74,77 @@
     //     "webRoot": "${workspaceFolder}/apps/shadcn-recharts"
     //   }
     // }
+    // version de notifai para lambdas o código suelto en el que hay que agregarle el input
+    // {
+    //   "name": "backend python fastify",
+    //   "type": "debugpy",
+    //   "request": "launch",
+    //   "program": "${workspaceFolder}/serverless/chatwoot-auna/src/create_interactions/app.py",
+    //   "console": "integratedTerminal",
+    //   "justMyCode": true,
+    //   "python": "/home/deglan/.pyenv/versions/3.7.16/bin/python",
+    //   "env": {
+    //     "COMMENTS": "arranca el flujo, simula trigger de api gateway, cambiar el name para probar filtro, opcional cambiar el número y body_params, simula el body final. APAGADO",
+    //     "SQS_INTERACTION_URL": "https://sqs.us-west-2.amazonaws.com/337331232350/SQSInteraction",
+    //     "REGION_NAME": "us-west-2",
+    //     "NOTIFAI_BACKEND_PRD": "api-plataforma-dev.notifai.pe",
+    //     "BEARER_TOKEN": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODU4MDg1OTQsImlhdCI6MTY4NTcyMTg5NCwibmJmIjoxNjg1NzIxODk0LCJpZGVudGl0eSI6IkpESmhKREE0SkZkdVZVRklMbEpTUlU5VFZUaHZSSEZpV0RCU2VuVnBRVTlxTTFkeGVYUkRUVzh2U25VemFqZzFPVTFXUlc1bWNUbG9TR3AxIiwibmFtZSI6Ik5vdGlmYWkgU3VwZXJBZG1pbiIsImJ1c2luZXNzIjoiQWRhVGhpbmsgTGFiIDIifQ.a07j5Ilrduh-vyhjwXPDUSjblXeLXBNVyapQWrYo7Qc",
+    //     "GET_CAMPAIGN_PATH": "api/v1/campaigns/{}",
+    //     "TOKEN": "Token TguOAlplhPKcDkxaUWmd7mf6ojSEIva5qVM2wLl2Dv4i2YrKzC",
+    //     "EVENT": ""
+    //   }
+    // },
+    // chatgpt | claude >>> gemini
+    // esta versión de chatgpt funcionó y ya podemos debuggear el backend de fastAPI, la clave era PYTHONPATH
     {
-      "name": "backend python fastify",
+      "name": "backend python fastAPI - chatgpt",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/serverless/chatwoot-auna/src/create_interactions/app.py",
-      "console": "integratedTerminal",
-      "justMyCode": true,
-      "python": "/home/deglan/.pyenv/versions/3.7.16/bin/python",
+      "program": "${workspaceFolder}/Consultor_new/Consultor/backend/danswer/main.py",
+      // "module": "uvicorn",
+      "args": [
+        "run",
+        "uvicorn",
+        "danswer.main:app",
+        "--reload",
+        // "--host",
+        // "127.0.0.1",
+        // "--port",
+        // "8888"
+      ],
+      "python": "/home/deglan/.pyenv/versions/consultor_deglan/bin/python",
+      // "python": "/home/deglan/.pyenv/versions/3.11.0/envs/consultor_deglan/bin/python",
+      // "python": "/home/deglan/.pyenv/versions/3.11.0/bin/consultor_deglan",
+      "cwd": "${workspaceFolder}/Consultor_new/Consultor/backend",
+      // "console": "integratedTerminal",
+      // "justMyCode": true,
+      // "preLaunchTask": "Activate Pyenv",
       "env": {
-        "COMMENTS": "arranca el flujo, simula trigger de api gateway, cambiar el name para probar filtro, opcional cambiar el número y body_params, simula el body final. APAGADO",
-        "SQS_INTERACTION_URL": "https://sqs.us-west-2.amazonaws.com/337331232350/SQSInteraction",
         "REGION_NAME": "us-west-2",
-        "NOTIFAI_BACKEND_PRD": "api-plataforma-dev.notifai.pe",
-        "BEARER_TOKEN": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODU4MDg1OTQsImlhdCI6MTY4NTcyMTg5NCwibmJmIjoxNjg1NzIxODk0LCJpZGVudGl0eSI6IkpESmhKREE0SkZkdVZVRklMbEpTUlU5VFZUaHZSSEZpV0RCU2VuVnBRVTlxTTFkeGVYUkRUVzh2U25VemFqZzFPVTFXUlc1bWNUbG9TR3AxIiwibmFtZSI6Ik5vdGlmYWkgU3VwZXJBZG1pbiIsImJ1c2luZXNzIjoiQWRhVGhpbmsgTGFiIDIifQ.a07j5Ilrduh-vyhjwXPDUSjblXeLXBNVyapQWrYo7Qc",
-        "GET_CAMPAIGN_PATH": "api/v1/campaigns/{}",
-        "TOKEN": "Token TguOAlplhPKcDkxaUWmd7mf6ojSEIva5qVM2wLl2Dv4i2YrKzC",
-        "EVENT": ""
+        "EVENT": "",
+        "MY_ENV": "local",
+        // esta era la que faltaba, de pura chiripa me la dio chatgpt | claude > gemini
+        "PYTHONPATH": "${workspaceFolder}/Consultor_new/Consultor/backend"
       }
     },
+    // claude también le achuntó y funciona igual de bien -> usar debugpy, module uvicon con sus args importantes del comando readme.md y PYTHONPATH
+    {
+      "name": "backend python fastAPI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "danswer.main:app",
+        "--reload",
+      ],
+      "python": "/home/deglan/.pyenv/versions/consultor_deglan/bin/python",
+      "cwd": "${workspaceFolder}/Consultor_new/Consultor/backend",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/Consultor_new/Consultor/backend",
+        "REGION_NAME": "us-west-2",
+        "EVENT": "",
+        "MY_ENV": "local"
+      }
+    }
   ]
 }
