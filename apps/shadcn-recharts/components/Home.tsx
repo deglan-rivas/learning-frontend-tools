@@ -55,7 +55,7 @@ const interactionData = [
 
 const interactionConfig = {
   interactions: {
-    label: "Interactions",
+    label: "interacciones_minusc",
     color: "hsl(var(--chart-2))",
   }
 } satisfies ChartConfig
